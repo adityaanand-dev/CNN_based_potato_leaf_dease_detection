@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Potato Leaf Disease Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 50px;
+        }
+        .error-card {
+            background: white;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-top: 5px solid #e74c3c;
+        }
+        h2 { color: #e74c3c; }
+        p { color: #555; font-size: 16px; }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="error-card">
+        <h2>⚠️ An Error Occurred</h2>
+        <p>{{ error }}</p>
+        <a href="/">Return Home</a>
+    </div>
+</body>
+</html>

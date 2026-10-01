@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato Leaf Disease Detection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7fafc;
+            color: #2d3748;
+            margin: 0;
+            padding: 30px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2b6cb0;
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+        .upload-section {
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            background: #f8fafc;
+        }
+        input[type="file"] {
+            margin: 15px 0;
+        }
+        button, a.btn {
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+        button:hover, a.btn:hover {
+            background-color: #2b6cb0;
+        }
+        .btn-secondary {
+            background-color: #4a5568;
+        }
+        .btn-secondary:hover {
+            background-color: #2d3748;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 18px;
+        }
+        .feature-box h3 {
+            margin-top: 0;
+            color: #2d3748;
+            font-size: 1.15rem;
+        }
+        .actions-bar {
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🥔 Potato Leaf Disease Detection</h1>
+        <p class="subtitle">Deep Learning Diagnosis powered by Custom CNN, InceptionV3, and ResNet50</p>
+
+        <div class="card">
+            <h2>📤 Upload Leaf Image for Instant Diagnosis</h2>
+            <div class="upload-section">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <p>Select a potato leaf photograph (JPG, JPEG, or PNG):</p>
+                    <input type="file" name="image" accept="image/*" required>
+                    <br>
+                    <button type="submit">Analyze Leaf Image</button>
+                </form>
+            </div>
+            <div class="actions-bar">
+                <span>Or use your live webcam: </span>
+                <a href="/realtime" class="btn btn-secondary">Open Real-Time Video Stream</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>✨ Key Capabilities</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <h3>🧠 Triple-Model Consensus</h3>
+                    <p>Leverages Custom CNN (95.7% accuracy), InceptionV3 (98.0% accuracy), and ResNet50 (88.0% accuracy) for cross-validated results.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>🔥 Grad-CAM Visual Heatmaps</h3>
+                    <p>Generates Gradient-weighted Class Activation Maps highlighting exact lesion regions the model used for its prediction.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>💊 Actionable Treatment Advice</h3>
+                    <p>Provides actionable recommendations, cultural controls, and chemical treatments for Early Blight and Late Blight.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Potato Leaf Disease Detection System &bull; Agriculture AI Assistant</p>
+        </footer>
+    </div>
+</body>
+</html>

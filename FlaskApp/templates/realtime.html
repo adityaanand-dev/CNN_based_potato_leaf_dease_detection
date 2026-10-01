@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Detection - Potato Leaf Disease</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        #video-container {
+            display: inline-block;
+            margin: 20px auto;
+            position: relative;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        #video-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .controls {
+            margin-top: 15px;
+        }
+        button, a.btn {
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+            transition: background-color 0.2s;
+        }
+        button:hover, a.btn:hover {
+            background-color: #2b6cb0;
+        }
+        .btn-secondary {
+            background-color: #718096;
+        }
+        .btn-secondary:hover {
+            background-color: #4a5568;
+        }
+        .info-card {
+            max-width: 640px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #4a5568;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>📹 Real-Time Potato Leaf Disease Detection</h1>
+    <p>Point your camera towards a potato leaf to get live model inference.</p>
+
+    <div id="video-container">
+        <img src="{{ url_for('video_feed') }}" alt="Live Camera Feed" id="video-feed">
+    </div>
+
+    <div class="controls">
+        <button id="pause-play-btn" onclick="togglePause()">Pause</button>
+        <a href="/" class="btn btn-secondary">Back to Home</a>
+    </div>
+
+    <div class="info-card">
+        <strong>Tip:</strong> Ensure good lighting on the leaf surface. The feed will display live predictions and confidence scores directly on each frame.
+    </div>
+
+    <script>
+        let isPaused = false;
+
+        function togglePause() {
+            fetch("/toggle_pause", { method: "POST" })
+                .then(response => response.json())
+                .then(data => {
+                    isPaused = data.paused;
+                    const button = document.getElementById("pause-play-btn");
+                    button.innerText = isPaused ? "Play" : "Pause";
+                })
+                .catch(err => {
+                    console.error("Failed to toggle pause:", err);
+                });
+        }
+    </script>
+</body>
+</html>
